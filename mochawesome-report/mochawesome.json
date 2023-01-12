@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-01-12T15:30:04.083Z",
+    "end": "2023-01-12T15:31:14.597Z",
+    "duration": 70514,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9a9cdc92-5cbe-4b88-9e9d-ed2fb7ad21f2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\flipkart\\flipkart.cy.js",
+      "file": "cypress\\e2e\\flipkart\\flipkart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "81f7d3fd-f26b-4481-9d93-a55fe9d039f1",
+          "title": "Flipkart",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Flipkart Book Purchase: Pass",
+              "fullTitle": "Flipkart Flipkart Book Purchase: Pass",
+              "timedOut": null,
+              "duration": 34112,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.flipkart.com/'); //load url\ncy.get('input[title=\"Search for products, brands and more\"]').type('Books to Read'); //type book\ncy.get('ul li div a div').contains('books to read').click(); //select \"books to read\" from dropdoen\ncy.get('a[title*=\"Meditations\"]').invoke('removeAttr', 'target').click(); //open the book\ncy.contains('Add to cart').realClick();\ncy.wait(3000);\ncy.contains(bookName).should('be.visible'); //verify if the book is same\ncy.contains('Place Order').realClick();\ncy.wait(3000);\ncy.contains('Enter Email/Mobile number').parent('div').children('input').type('abcd@xyz.com');\ncy.contains('CONTINUE').realClick();",
+              "err": {},
+              "uuid": "ca923134-c667-4093-880e-36ba8d6c33e3",
+              "parentUUID": "81f7d3fd-f26b-4481-9d93-a55fe9d039f1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Flipkart Book Purchase: Fail",
+              "fullTitle": "Flipkart Flipkart Book Purchase: Fail",
+              "timedOut": null,
+              "duration": 26958,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.flipkart.com/'); //load url\ncy.get('input[title=\"Search for products, brands and more\"]').type('Books to Read'); //type book\ncy.get('ul li div a div').contains('books to read').click(); //select \"books to read\" from dropdoen\ncy.get('a[title*=\"Meditations\"]').invoke('removeAttr', 'target').click(); //open the book\ncy.contains('Add to cart').realClick();\ncy.wait(3000);\ncy.contains('Atomic Habits').should('be.visible'); //verify if the book is same\ncy.contains('Place Order').realClick();\ncy.wait(3000);\ncy.contains('Enter Email/Mobile number').parent('div').children('input').type('abcd@xyz.com');\ncy.contains('CONTINUE').realClick();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Atomic Habits' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Atomic Habits' but never did.\n    at Context.eval (cypress/e2e/flipkart/flipkart.cy.js:24:37)",
+                "diff": null
+              },
+              "uuid": "4bb3e8eb-5a6a-4728-97bf-7ccd4be51315",
+              "parentUUID": "81f7d3fd-f26b-4481-9d93-a55fe9d039f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ca923134-c667-4093-880e-36ba8d6c33e3"
+          ],
+          "failures": [
+            "4bb3e8eb-5a6a-4728-97bf-7ccd4be51315"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 61070,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
